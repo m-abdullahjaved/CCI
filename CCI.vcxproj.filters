@@ -24,12 +24,24 @@
     <ClCompile Include="Lecture-3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CCI-Lecture 6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Twitter-Test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Twitter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

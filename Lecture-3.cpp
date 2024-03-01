@@ -1,66 +1,10 @@
 #include "LinkedList.h"
+#include "CircularQueue.h"
 #include <unordered_map>
 #include <string>
 
 
-
-class MyCircularQueue {
-	int* arr;
-	int size, capacity;
-	int front, rear;
-public:
-	MyCircularQueue(int k) : capacity(k), size(0), front(0), rear(0), arr(nullptr) {
-		arr = new int[capacity];
-	}
-
-	bool enQueue(int value) {
-		if (size < capacity) {
-			if (rear == capacity) {
-				rear = rear % capacity;
-			}
-			arr[rear++] = value;
-			size++;
-			return true;
-		}
-
-		return false;
-	}
-
-	bool deQueue() {
-		if (size > 0) {
-			if (front == capacity - 1)
-				front = 0;
-			else
-				front++;
-
-			size--;
-			
-			return true;
-		}
-	}
-
-	
-	int Front() {
-		if (size)
-			return arr[front];
-		return -1;
-	}
-
-	int Rear() {
-		if (size)
-			return arr[rear - 1];
-		return -1;
-	}
-
-	bool isEmpty() {
-		return size == 0;
-	}
-
-	bool isFull() {
-		return size == capacity;
-	}
-};
-
+/*
 int main() {
 	MyCircularQueue* obj = new MyCircularQueue(4);
 
@@ -83,26 +27,22 @@ int main() {
 	cout << obj->Front() << " " << obj->Rear() << endl;
 
 
-	/*cout << "Front: " << obj->Front() << endl;
+	cout << "Front: " << obj->Front() << endl;
 	cout << "Rear: " << obj->Rear() << endl;
 	obj->deQueue();
 	cout << "Front: " << obj->Front() << endl;
 	cout << "Rear: " << obj->Rear() << endl;
 	obj->enQueue(5);
 	cout << "Front: " << obj->Front() << endl;
-	cout << "Rear: " << obj->Rear() << endl;*/
-	// int param_3 = obj->Front();
-	// int param_4 = obj->Rear();
-	// bool param_5 = obj->isEmpty();
-	// bool param_6 = obj->isFull();
+	cout << "Rear: " << obj->Rear() << endl;
+	int param_3 = obj->Front();
+	int param_4 = obj->Rear();
+	bool param_5 = obj->isEmpty();
+	bool param_6 = obj->isFull();
 	return 0;
 }
 
-
-
-
-
-
+*/
 
 
 int strStr(string haystack, string needle) {
