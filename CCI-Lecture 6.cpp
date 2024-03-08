@@ -189,3 +189,43 @@ int main() {
 	return 0;
 }
 */
+
+double myPow(double x, int n) {
+	if (n == 0)
+		return 1;
+
+	int C = 1;
+	double R = x;
+
+	do {
+		C += C;
+		R *= R;
+		cout << R << endl;
+	} while (C + C <= n);
+
+	return x * myPow(x, n - C);
+}
+
+bool isPowerOfTwo(int n) {
+	if (n == 1)
+		return true;
+	if (n == 0 || n % 2 != 0)
+		return false;
+
+	return isPowerOfTwo(n / 2);
+}
+
+bool isPowerOfThree(int n) {
+	if (n == 1)
+		return true;
+	if (n == 0 || n % 3 != 0)
+		return false;
+	return isPowerOfThree(n / 3);
+}
+
+/*
+int main() {
+	cout << pow(2, 10) << endl;
+	return 0;
+}
+*/

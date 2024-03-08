@@ -16,7 +16,7 @@ void printTweets(vector<int> tweets) {
 	cout << endl;
 }
 
-
+/*
 int main() {
 	Twitter twitter;
 	twitter.follow(1, 2);
@@ -45,7 +45,7 @@ int main() {
 
 	return 0;
 }
-
+*/
 
 /*
 int main() {
