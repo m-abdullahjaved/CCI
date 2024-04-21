@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 
 void extend(int count0, int count1, int n, string str, vector<string>& Vs) {
@@ -21,6 +22,20 @@ void extend(int count0, int count1, int n, string str, vector<string>& Vs) {
 		}
 	}
 
+}
+
+vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+	unordered_set<int> set1(nums1.begin(), nums1.end());
+	unordered_set<int> set2(nums2.begin(), nums2.end());
+
+	vector<int> common;
+
+	for (auto& x : set1) {
+		if (set2.find(x) != set2.end())
+			common.push_back(x);
+	}
+
+	return common;
 }
 
 vector<string> generateString(int n) {
@@ -78,6 +93,7 @@ vector<vector<int>> permute(vector<int> nums) {
 	return AllPs;
 }
 
+/*
 int main() {
 	vector<int> nums{ 1,2,3 };
 	vector<vector<int>> AllPs = permute(nums);
@@ -89,7 +105,7 @@ int main() {
 	}
 	return 0;
 }
-
+*/
 int findMax(int* freq, int size) {
 	int max = freq[0];
 	for (int i = 1; i < size; i++) {
