@@ -25,7 +25,7 @@ class BST {
 				else
 					root->left = new Node(val, root);
 			}
-			else {
+			else if (root->Data < val) {
 				if (root->right)
 					insert(root->right, val);
 				else
@@ -88,6 +88,73 @@ class BST {
 			return r->parent;
 		}
 	}
+	Node* deleteNode(Node* root, T key) {
+		if (!root) return nullptr;
+		if (key < root->Data) {
+			deleteNode(root->left, key);
+		}
+		else if (key > root->Data) {
+			deleteNode(root->right, key);
+		}
+		else if (root->Data == key) {
+			Node* rParent = root->parent;
+			// Case 1: Leaf Node
+			if (root->left == nullptr && root->right == nullptr) {
+				if (rParent != nullptr) {
+					if (rParent->left == root) {
+						rParent->left = nullptr;
+					}
+					else {
+						rParent->right = nullptr;
+					}
+				}
+				else 
+					root = nullptr;
+				
+				delete root;
+			}
+			// Case 2: 1 Node [Left/Right]
+			else if (root->left == nullptr) {
+				if (rParent != nullptr) {
+					if (rParent->left == root)
+						rParent->left = root->right;
+					else
+						rParent->right = root->right;
+
+					delete root;
+				}
+				else {
+					Node* temp = root;
+					root = root->right;
+					delete temp;
+				}
+			}
+			else if (root->right == nullptr) {
+				if (rParent != nullptr) {
+					if (rParent->left == root)
+						rParent->left = root->left;
+					else
+						rParent->right = root->left;
+
+					delete root;
+				}
+				else {
+					Node* temp = root;
+					root = root->left;
+					delete temp;
+				}
+			}
+			// Case 3
+			else {
+				Node* suc = Successor(root);
+				if (suc != root) {
+					swap(suc->Data, root->Data);
+					deleteNode(root->right, key);
+				}
+			}
+		}
+		return root;
+	}
 	Node* root;
 public:
 	
@@ -103,7 +170,9 @@ public:
 	bool isSame(const BST& b) {
 		return isSameBST(this->root, b.root);
 	}
-
+	void deleteNode(T key) {
+		root = deleteNode(root, key);
+	}
 	class LNRIterator {
 		Node* n;
 	public:

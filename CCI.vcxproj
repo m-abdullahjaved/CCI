@@ -130,6 +130,7 @@
     <ClCompile Include="Arrays &amp; Strings.cpp" />
     <ClCompile Include="CCI-Lecture 6.cpp" />
     <ClCompile Include="CCI-Lecture 8.cpp" />
+    <ClCompile Include="DP.cpp" />
     <ClCompile Include="Lecture 7.cpp" />
     <ClCompile Include="Lecture-2.cpp" />
     <ClCompile Include="Lecture-3.cpp" />

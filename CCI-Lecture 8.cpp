@@ -1,6 +1,8 @@
 #include "BST.h"
 #include <iomanip>
 
+
+
 struct Student {
 	string name;
 	int rollno;
@@ -15,6 +17,25 @@ static ostream& operator<<(ostream&, const Student& lhs) {
 	return cout << left << setw(15) << lhs.name << lhs.rollno << " " << lhs.cgpa;
 }
 
+/*
+int main() {
+	BST<int> B;
+	//B.insert(4);
+	//B.insert(2);
+	//B.insert(6);
+	//B.insert(1);
+	//B.insert(3);
+	//B.insert(5);
+	//B.insert(7);
+	////B.print();
+	B.deleteNode(2);
+	B.deleteNode(4);
+	B.print();
+	
+	return 0;
+}
+*/
+/*
 int main() {
 	Student A[] = {
 		{"Abdullah",1, 2.5},
@@ -36,7 +57,7 @@ int main() {
 
 	return 0;
 }
-
+*/
 /*
 int main() {
 	BST<int> B;
