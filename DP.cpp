@@ -31,11 +31,48 @@ long long catalanDP(int n) {
     return Cs[n];
 }
 
-int main() {
-    long long i = 0;
-    while (i >= 0) {
-        cout << i << ": " << catalanDP(i) << endl;
-        i++;
-    }
-    return 0;
+long long climbStairs(int n) {
+    vector<long long> Steps(n + 1, { 0 });
+    Steps[0] = 1;
+    Steps[1] = 2;
+
+    for (int i = 2; i < n; i++)
+        Steps[i] = Steps[i - 1] + Steps[i - 2];
+
+    return Steps[n - 1];
+}
+
+int memoized_tribonacci(int n, vector<int>& Ts) {
+    if (Ts[n] != -1)
+        return Ts[n];
+
+    Ts[n] = memoized_tribonacci(n - 1, Ts) + memoized_tribonacci(n - 2, Ts) + memoized_tribonacci(n - 3, Ts);
+    return Ts[n];
+}
+int tribonacci(int n) {
+    if (n == 0)
+        return 0;
+    else if (n <= 2)
+        return 1;
+    vector<int> Ts(n + 1, { -1 });
+    Ts[0] = 0;
+    Ts[1] = 1;
+    Ts[2] = 1;
+    return memoized_tribonacci(n, Ts);
+}
+
+int tribonacciDP(int n) {
+    if (n == 0)
+        return 0;
+    else if (n <= 2)
+        return 1;
+    vector<int> Ts(n + 1, { -1 });
+    Ts[0] = 0;
+    Ts[1] = 1;
+    Ts[2] = 1;
+
+    for (int i = 3; i <= n; i++)
+        Ts[i] = Ts[i - 1] + Ts[i - 2] + Ts[i - 3];
+
+    return Ts[n];
 }
